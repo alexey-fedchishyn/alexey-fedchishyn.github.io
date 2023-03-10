@@ -1,6 +1,3 @@
-
-
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -111,28 +108,7 @@
     <script>
       let tg = window.Telegram.WebApp; 
       tg.MainButton.text = "Додати замовлення";
-     
-      tg.MainButton.show().onClick(function(){
-        var d = new Date(Date.parse(document.getElementById('deadline').value))
-        let date = ('0' + d.getDate()).slice(-2) + '-'
-             + ('0' + (d.getMonth()+1)).slice(-2) + '-'
-             + d.getFullYear() + " " + ('0' + d.getHours()).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2);
-        var e = document.getElementById("spec");
-        var text = e.options[e.selectedIndex].text;
-        let res = document.getElementById('work_type').innerHTML + '*' +
-        document.getElementById('number').value + '*' +
-      text + '*'+
-      document.getElementById('subject_name').value + '*'+
-      document.getElementById('type').value + '*'+
-      document.getElementById('pages').value + '*'+
-      document.getElementById('unique').options[document.getElementById('unique').selectedIndex].text + '*'+
-      date + '*'+
-      document.getElementById('comment').value + '*'+
-      document.getElementById('price').value;
-      tg.sendData(res); 
-        });
-
-        
+            
     let multiselect = document.querySelector(".multiselect__list");
     let multiselectName = "something";
     let array = [
@@ -227,6 +203,24 @@
       input.name = multiselectName;
       multiselect.appendChild(li);
     }
+      
+      tg.MainButton.show().onClick(function(){
+        var d = new Date(Date.parse(document.getElementById('deadline').value))
+        let date = ('0' + d.getDate()).slice(-2) + '-'
+             + ('0' + (d.getMonth()+1)).slice(-2) + '-'
+             + d.getFullYear() + " " + ('0' + d.getHours()).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2);
+        let res = document.getElementById('work_type').innerHTML + '*' +
+        document.getElementById('number').value + '*' +
+        values + '*'+
+        document.getElementById('subject_name').value + '*'+
+        document.getElementById('type').value + '*'+
+        document.getElementById('pages').value + '*'+
+        document.getElementById('unique').options[document.getElementById('unique').selectedIndex].text + '*'+
+        date + '*'+
+        document.getElementById('comment').value + '*'+
+        document.getElementById('price').value;
+      tg.sendData(res); 
+        });
     </script>
 
 
