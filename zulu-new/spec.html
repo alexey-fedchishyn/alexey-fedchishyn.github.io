@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -62,58 +64,197 @@
     
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
+      const url = window.location.search;
+      const queryString = url.split('?')[1];
+      const urlParams = new URLSearchParams(queryString);
+      const arraymin = urlParams.get('array');
+      let splitted = arraymin?.split(',') || ""
       let tg = window.Telegram.WebApp; 
       tg.MainButton.text = "Додати замовлення";
             
     let multiselect = document.querySelector(".multiselect__list");
     let multiselectName = "something";
     let array = [
-      "Аграрний профіль",
-      "Астрономія",
-      "Бух. облік|оподаткування|аудит",
-      "Бібліографія|музеєзнавство|видавнича справа'",
-      "Бізнес-плани",
-      "Біологія|медицина|фармація",
-      "Вся економіка",
-      "Вся математика",
-      "Військові дисципліни",
-      "Геодезія|землеустрій|картографія",
-      "Геологія|гідравліка|мінерали",
-      "Екологія|природознавство",
-      "Електрика|електроніка|схемотехніка",
-      "Електротехніка|теплотехніка|термодинаміка|електродинаміка",
-      "Журналістика",
-      "Іноземні мови",
-      "Інші технічні спеціальності",
-      "Історія",
-      "Креслення",
-      "Логістика",
-      "Маркетинг",
-      "Машинобудівні|металургія|будівництва",
-      "Менеджмент",
-      "Музика|мистецтво|культура",
-      "Міжнародні відносини|політологія",
-      "Педагогіка, дошкільна освіта",
-      "Правки в чужу роботу",
-      "Право",
-      "Програмування|інформатика",
-      "Психологія",
-      "Публічне управління та адміністрування",
-      "Підвищення унікальності",
-      "Реклама|зв'язки із громадськістю|HR-діяльність",
-      "Релігія",
-      "Соціологія",
-      "Статистика",
-      "Теор. механіка|прикладна механіка",
-      "Товарознавство",
-      "Туризм|географія|готельно-ресторанна справа",
-      "Укр. мова|філологія|зарубіжна література",
-      "Фізика",
-      "Фізичне виховання|реабілітація",
-      "Філософія|логіка",
-      "Фінанси|банківська справа|страхування",
-      "Харчові технології",
-      "Хімія",
+      {
+        "id":0,
+        "name":"Аграрний профіль"
+      },
+      {
+        "id":1,
+        "name":"Астрономія"
+      },
+      {
+        "id":2,
+        "name":"Бух. облік/оподаткування/аудит"
+      },
+      {
+        "id":3 , 
+        "name":"Бібліографія/музеєзнавство/видавнича справа'"
+      },
+      {
+        "id":4,
+        "name":"Бізнес-плани"
+      },
+      {
+        "id":5,
+        "name":"Біологія/медицина/фармація"
+      },
+      {
+        "id":6,
+        "name":"Вся економіка"
+      },
+      {
+        "id":7,
+        "name":"Вся математика"
+      },
+      {
+        "id":8,
+        "name":"Військові дисципліни"
+      },
+      {
+        "id":9,
+        "name":"Геодезія/землеустрій/картографія"
+      },
+      {
+        "id":10,
+        "name":"Геологія/гідравліка/мінерали"
+      },
+      {
+        "id":11,
+        "name":"Екологія/природознавство"
+      },
+      {
+        "id":12,
+        "name":"Електротехніка/теплотехніка/термодинаміка/електродинаміка"
+      },
+      {
+        "id":13,
+        "name":"Журналістика"
+      },
+      {
+        "id":14,
+        "name":"Іноземні мови"
+      },
+      {
+        "id":15,
+        "name":"Інші технічні спеціальності"
+      },
+      {
+        "id":16,
+        "name":"Історія"
+      },
+      {
+        "id":17,
+        "name":"Креслення"
+      },
+      {
+        "id":18,
+        "name":"Логістика"
+      },
+      {
+        "id":19,
+        "name":"Маркетинг"
+      },
+      {
+        "id":20,
+        "name":"Машинобудівні/металургія/будівництва"
+      },
+      {
+        "id":21,
+        "name":"Менеджмент"
+      },
+      {
+        "id":22,
+        "name":"Музика/мистецтво/культура"
+      },
+      {
+        "id":23,
+        "name":"Міжнародні відносини/політологія"
+      },
+      {
+        "id":24,
+        "name":"Педагогіка, дошкільна освіта"
+      },
+      {
+        "id":25,
+        "name":"Правки в чужу роботу"
+      },
+      {
+        "id":26,
+        "name":"Програмування/інформатика"
+      },
+      {
+        "id":27,
+        "name":"Право"
+      },
+      {
+        "id":28,
+        "name":"Психологія"
+      },
+      {
+        "id":29,
+        "name":"Публічне управління та адміністрування"
+      },
+      {
+        "id":30,
+        "name":"Підвищення унікальності"
+      },
+      {
+        "id":31,
+        "name":"Реклама/зв'язки із громадськістю|HR-діяльність"
+      },
+      {
+        "id":32,
+        "name":"Релігія"
+      },
+      {
+        "id":33,
+        "name":"Соціологія"
+      },
+      {
+        "id":34,
+        "name":"Статистика"
+      },
+      {
+        "id":35,
+        "name":"Теор. механіка/прикладна механіка"
+      },
+      {
+        "id":36,
+        "name":"Товарознавство"
+      },
+      {
+        "id":37,
+        "name":"Туризм/географія/готельно-ресторанна справа"
+      },
+      {
+        "id":38,
+        "name":"Укр. мова/філологія/зарубіжна література"
+      },
+      {
+        "id":39,
+        "name":"Фізика"
+      },
+      {
+        "id":40,
+        "name":"Фізичне виховання/реабілітація"
+      },
+      {
+        "id":41,
+        "name":"Філософія/логіка"
+      },
+      {
+        "id":42,
+        "name":"Фінанси/банківська справа/страхування"
+      },
+      {
+        "id":43,
+        "name":"Харчові технології"
+      },
+      {
+        "id":44,
+        "name":"Хімія"
+      }
     ];
     let btn = document.querySelector(".multiselect__trigger");
     // в значении values будут хранится активные значение    
@@ -121,16 +262,16 @@
 
     multiselect.addEventListener("click", (e) => {
       if (e.target.closest(".multiselect__input")) {
-        values = values.split("/");
+        values = values.split("|");
         let input = e.target.closest(".multiselect__input");
         if (!values.includes(input.value)) {
           values.push(input.value);
-          values = values.join("/");
+          values = values.join("|");
           console.log(values);
         } else {
           let index = values.indexOf(input.value);
           values.splice(index, 1);
-          values = values.join("/");
+          values = values.join("|");
           console.log(values);
         }
       }
@@ -141,21 +282,37 @@
     function open() {
       multiselect.classList.toggle("show");
     }
+    let olds = []
     for (let i = 0; i < array.length; i++) {
       let li = document.createElement("li");
       let input = document.createElement("input");
+      if (splitted.length) {
+        for (let k = 0; k < splitted?.length; k++) {
+          if (array[i].id == splitted[k]) {
+            input.checked = true
+            if (olds.length != 0) {
+              olds = olds.split("|")
+            }
+            let item = array.find(e=> e.id == splitted[i])
+            olds.push(item.name)
+            olds = olds.join("|")
+            values = olds
+          }
+        }
+      }
       let label = document.createElement("label");
       let p = document.createElement("p");
       li.appendChild(label);
       label.appendChild(input);
       label.appendChild(p);
-      p.textContent = array[i];
+      p.textContent = array[i].name;
       li.classList.add("multiselect__item");
       label.classList.add("multiselect__label");
       p.classList.add("multiselect__text");
       input.classList.add("multiselect__input");
       input.type = "checkbox";
-      input.value = array[i];
+      input.value = array[i].name;
+      input.dataset.id = array[i].id
       input.name = multiselectName;
       multiselect.appendChild(li);
     }
