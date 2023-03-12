@@ -262,16 +262,16 @@
 
     multiselect.addEventListener("click", (e) => {
       if (e.target.closest(".multiselect__input")) {
-        values = values.split("|");
+        values = values.split(", ");
         let input = e.target.closest(".multiselect__input");
         if (!values.includes(input.value)) {
           values.push(input.value);
-          values = values.join("|");
+          values = values.join(", ");
           console.log(values);
         } else {
           let index = values.indexOf(input.value);
           values.splice(index, 1);
-          values = values.join("|");
+          values = values.join(", ");
           console.log(values);
         }
       }
@@ -291,11 +291,11 @@
           if (array[i].id == splitted[k]) {
             input.checked = true
             if (olds.length != 0) {
-              olds = olds.split("|")
+              olds = olds.split(", ")
             }
             let item = array.find(e=> e.id == splitted[i])
             olds.push(item.name)
-            olds = olds.join("|")
+            olds = olds.join(", ")
             values = olds
           }
         }
