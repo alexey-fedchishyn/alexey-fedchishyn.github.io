@@ -297,10 +297,10 @@
               olds = olds.split(", ")
             }
             let item = array.find(smt => smt.id == splitted[k])
-            console.log(item);
-            olds.push(item)
+            olds.push(item.name)
             olds = olds.join(", ")
             values = olds
+            console.log(values);
           }
         }
       }
@@ -321,10 +321,10 @@
       multiselect.appendChild(li);
     }
       
-    tg.MainButton.show().onClick(function(){
-      let res = "spec*" + ;
-    tg.sendData(res); 
-      });
+      tg.MainButton.show().onClick(function(){
+        let res = "spec*" + values;
+      tg.sendData(res); 
+        });
     </script>
 
 
