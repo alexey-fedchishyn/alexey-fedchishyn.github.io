@@ -27,7 +27,7 @@
       let tg = window.Telegram.WebApp; 
       tg.MainButton.text = "Відправити";
       tg.MainButton.show().onClick(function(){
-        let res = 'payment*' + document.getElementById('fullname').innerHTML + '*' +
+        let res = 'payment*' + document.getElementById('fullname').value + '*' +
         document.getElementById('card').value;
       tg.sendData(res); 
         });
