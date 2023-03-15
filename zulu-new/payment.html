@@ -13,7 +13,7 @@
   
   <body>
     <div class="contaiter m-5">
-      <h2 id = "work_type">Анотація</h1>
+      <h2 id = "work_type">Платіжні дані</h1>
         <form>
           <input type="text" id = "fullname" placeholder="ПІБ" class="form-control">
           <br>
@@ -27,7 +27,7 @@
       let tg = window.Telegram.WebApp; 
       tg.MainButton.text = "Відправити";
       tg.MainButton.show().onClick(function(){
-        let res = document.getElementById('fullname').innerHTML + '*' +
+        let res = 'payment*' + document.getElementById('fullname').innerHTML + '*' +
         document.getElementById('card').value;
       tg.sendData(res); 
         });
