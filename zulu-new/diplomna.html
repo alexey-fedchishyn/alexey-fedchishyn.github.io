@@ -165,16 +165,16 @@
 
     multiselect.addEventListener("click", (e) => {
       if (e.target.closest(".multiselect__input")) {
-        values = values.split("/");
+        values = values.split(", ");
         let input = e.target.closest(".multiselect__input");
         if (!values.includes(input.value)) {
           values.push(input.value);
-          values = values.join("/");
+          values = values.join(", ");
           console.log(values);
         } else {
           let index = values.indexOf(input.value);
           values.splice(index, 1);
-          values = values.join("/");
+          values = values.join(", ");
           console.log(values);
         }
       }
