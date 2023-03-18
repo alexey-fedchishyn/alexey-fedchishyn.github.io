@@ -295,11 +295,11 @@
           if (array[i].id == splitted[k]) {
             input.checked = true
             if (olds.length != 0) {
-              olds = olds.split("|")
+              olds = olds.split(", ")
             }
             let item = array.find(smt => smt.id == splitted[k])
             olds.push(item.name)
-            olds = olds.join("|")
+            olds = olds.join(", ")
             values = olds
             console.log(values);
           }
