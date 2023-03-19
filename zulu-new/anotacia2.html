@@ -210,8 +210,8 @@
         let date = ('0' + dt.getDate()).slice(-2) + '-'
              + ('0' + (dt.getMonth()+1)).slice(-2) + '-'
              + dt.getFullYear() + " "
-        var tm = new Time(Time.parse(document.getElementById('deadline-time').value))
-        let deadline = date + ('0' + tm.getHours()).slice(-2) + ":" + ('0' + tm.getMinutes()).slice(-2);
+        var tm = document.getElementById('deadline-time').value
+        let deadline = date + tm;
         let res = document.getElementById('work_type').innerHTML + '*' +
         document.getElementById('number').value + '*' +
         values + '*' +
