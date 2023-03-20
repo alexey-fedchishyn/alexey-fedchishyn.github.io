@@ -203,13 +203,12 @@
         let res = document.getElementById('work_type').innerHTML + '*' +
         document.getElementById('number').value + '*' +
         values + '*' +
-        document.getElementById('subject_name').value + '*'+
+        document.getElementById('subject_name').value + '*' +
         document.getElementById('type').value + '*'+
-        document.getElementById('pages').value + '*'+
-        document.getElementById('unique').options[document.getElementById('unique').selectedIndex].text + '*'+
         deadline + '*'+
-        document.getElementById('comment').value + '*'+
-        document.getElementById('price').value;
+        document.getElementById('comment').value + '*' +
+        document.getElementById('price').value  + '*' +
+        document.getElementById('sliders').value;
       tg.sendData(res); 
         });
     </script>
