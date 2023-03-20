@@ -43,6 +43,18 @@
         border-radius: 0.25rem;
         transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
       }
+      /* Hour */
+      input[type=time]::-webkit-datetime-edit-hour-field {
+        background-color: #f2f4f5;
+        border-radius: 15%;
+        padding: 19px 13px;
+      }
+      /* Minute */
+      input[type=time]::-webkit-datetime-edit-minute-field {
+        background-color: #f2f4f5;
+        border-radius: 15%;
+        padding: 19px 13px;
+      }
     </style>
     <title>Нове замовлення</title>
   </head>
@@ -92,7 +104,8 @@
           </select>
         <br>
         <label>Введіть дедлайн</label>
-        <input type="datetime-local" id = "deadline" class="form-control">
+        <input type="date" id="deadline-date" class="form-control">
+        <input type="time" id="deadline-time" class="form-control">
         <br>
         <label>Вкажіть інші деталі замовлення (додаткова інформація)</label>
         <textarea type="text" id = "comment" class="form-control" style="height: 200px;"></textarea>
@@ -101,8 +114,7 @@
         <br>
 </form>
 </div>
-    
-    
+
     
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
@@ -205,18 +217,20 @@
     }
       
       tg.MainButton.show().onClick(function(){
-        var d = new Date(Date.parse(document.getElementById('deadline').value))
-        let date = ('0' + d.getDate()).slice(-2) + '-'
-             + ('0' + (d.getMonth()+1)).slice(-2) + '-'
-             + d.getFullYear() + " " + ('0' + d.getHours()).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2);
+        var dt = new Date(Date.parse(document.getElementById('deadline-date').value))
+        let date = ('0' + dt.getDate()).slice(-2) + '-'
+             + ('0' + (dt.getMonth()+1)).slice(-2) + '-'
+             + dt.getFullYear() + " "
+        var tm = document.getElementById('deadline-time').value
+        let deadline = date + tm;
         let res = document.getElementById('work_type').innerHTML + '*' +
         document.getElementById('number').value + '*' +
-        values + '*'+
+        values + '*' +
         document.getElementById('subject_name').value + '*'+
         document.getElementById('type').value + '*'+
         document.getElementById('pages').value + '*'+
         document.getElementById('unique').options[document.getElementById('unique').selectedIndex].text + '*'+
-        date + '*'+
+        deadline + '*'+
         document.getElementById('comment').value + '*'+
         document.getElementById('price').value;
       tg.sendData(res); 
